@@ -1,0 +1,20 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    bmac.agent-install.openshift.io/hostname: master-2.ocp-edge1-cl3.lab.eng.tlv2.redhat.com
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/cluster-reference: ocp-edge1-cl3/ocp-edge1-cl3
+    bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
+  labels:
+    infraenvs.agent-install.openshift.io: ocp-edge1-cl3
+    cluster-name: ocp-edge1-cl3
+  name: x240m5-13
+spec:
+  automatedCleaningMode: metadata
+  bmc:
+    address: "redfish-virtualmedia+https://ocp-edge12.lab.eng.tlv2.redhat.com:8000/redfish/v1/Systems/bb9d9bc3-eb3d-4885-926e-b983ecce0be5"
+    credentialsName: bmc-credentials
+    disableCertificateVerification: true
+  bootMACAddress: 52:54:00:46:16:1e
+  online: true

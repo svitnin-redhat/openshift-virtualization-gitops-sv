@@ -1,0 +1,118 @@
+apiVersion: siteconfig.open-cluster-management.io/v1alpha1
+kind: ClusterInstance
+metadata:
+  labels:
+    app.kubernetes.io/instance: ocp-edge1-cl3-siteconfig
+  name: ocp-edge1-cl3
+  namespace: ocp-edge1-cl3
+spec:
+  clusterName: ocp-edge1-cl3
+  baseDomain: lab.eng.tlv2.redhat.com
+  clusterType: HighlyAvailable
+  cpuArchitecture: x86_64
+  clusterImageSetNameRef: "4.19"
+  apiVIPs:
+  - 10.46.57.33
+  ingressVIPs:
+  - 10.46.57.34
+  networkType: OVNKubernetes
+  machineNetwork:
+    - cidr: 10.46.57.0/24
+  clusterNetwork:
+    - cidr: 10.128.0.0/14
+      hostPrefix: 23
+  serviceNetwork:
+    - cidr: 172.30.0.0/16
+  cpuPartitioningMode: AllNodes
+  extraLabels:
+    ManagedCluster:
+      common: 'true'
+      du-profile: latest
+      sites: ocp-edge1-cl3
+  holdInstallation: false
+  ignitionConfigOverride: '{"ignition":{"version":"3.2.0"},"storage":{"files":[{"path":"/etc/containers/policy.json","mode":420,"overwrite":true,"contents":{"source":"data:text/plain;charset=utf-8;base64,ewogICAgImRlZmF1bHQiOiBbCiAgICAgICAgewogICAgICAgICAgICAidHlwZSI6ICJpbnNlY3VyZUFjY2VwdEFueXRoaW5nIgogICAgICAgIH0KICAgIF0sCiAgICAidHJhbnNwb3J0cyI6CiAgICAgICAgewogICAgICAgICAgICAiZG9ja2VyLWRhZW1vbiI6CiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgIiI6IFt7InR5cGUiOiJpbnNlY3VyZUFjY2VwdEFueXRoaW5nIn1dCiAgICAgICAgICAgICAgICB9CiAgICAgICAgfQp9"}}]}}'
+  pullSecretRef:
+    name: ocp-edge1-cl3-pull-secret
+  sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm9hb6iTZJypEmzg4IZ767ze60UGhBWnjPXhovWVB7uKputdLzZhmlo36ifkXr/DTk8NGm47r6kXmz9NAF0pDHa5jX6yJFnhS4z5NY/mzsUX41gwiqBKYHgdp/KE1ylE8mbNon5ZpaaGvb876myjjPjPwWsD8hvXZirA5Q8TfDb/Pvgy1dhVH/uN05Ip1vVsp+bFGMPUJVWVUy/Eby5xW6OJv+FBOQq4nu6tslDZlHYXX2TSGrlW4x0i/oQMpKu/Y8ygAdjWqmAy6UBcho1nNWy15cp0jI5Fhjze171vSWZLAqJY+eFcL2kt/09RnY+MXyY/tIf+qNMyBE2Qltigah
+  templateRefs:
+    - name: ai-cluster-templates-v1
+      namespace: open-cluster-management
+  nodes:
+    - role: master
+      hostName: master-0
+      bmcAddress: redfish-virtualmedia+https://ocp-edge12.lab.eng.tlv2.redhat.com:8000/redfish/v1/Systems/26905270-e77c-4b60-b59f-c62449723379
+      bmcCredentialsName:
+        name: ocp-edge1-cl3-bmc-secret
+      bootMACAddress: 52:54:00:4d:57:25
+      automatedCleaningMode: disabled
+      bootMode: UEFI
+      ironicInspect: ''
+      nodeNetwork:
+        config:
+          interfaces:
+            - ipv4:
+                dhcp: true
+                enabled: true
+              ipv6:
+                enabled: false
+              name: eth0
+              state: up
+              type: ethernet
+        interfaces:
+          - macAddress: 52:54:00:4d:57:25
+            name: eth0
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management
+    - role: master
+      hostName: master-1
+      bmcAddress: redfish-virtualmedia+https://ocp-edge12.lab.eng.tlv2.redhat.com:8000/redfish/v1/Systems/c56dbf2d-fb6e-4a0d-af5f-dc2e8566bf92
+      bmcCredentialsName:
+        name: ocp-edge1-cl3-bmc-secret
+      bootMACAddress: 52:54:00:13:b9:4f
+      automatedCleaningMode: disabled
+      bootMode: UEFI
+      ironicInspect: ''
+      nodeNetwork:
+        config:
+          interfaces:
+            - ipv4:
+                dhcp: true
+                enabled: true
+              ipv6:
+                enabled: false
+              name: eth0
+              state: up
+              type: ethernet
+        interfaces:
+          - macAddress: 52:54:00:13:b9:4f
+            name: eth0
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management
+    - role: master
+      hostName: master-2
+      bmcAddress: redfish-virtualmedia+https://ocp-edge12.lab.eng.tlv2.redhat.com:8000/redfish/v1/Systems/bb9d9bc3-eb3d-4885-926e-b983ecce0be5
+      bmcCredentialsName:
+        name: ocp-edge1-cl3-bmc-secret
+      bootMACAddress: 52:54:00:46:16:1e
+      automatedCleaningMode: disabled
+      bootMode: UEFI
+      ironicInspect: ''
+      nodeNetwork:
+        config:
+          interfaces:
+            - ipv4:
+                dhcp: true
+                enabled: true
+              ipv6:
+                enabled: false
+              name: eth0
+              state: up
+              type: ethernet
+        interfaces:
+          - macAddress: 52:54:00:46:16:1e
+            name: eth0
+      templateRefs:
+        - name: ai-node-templates-v1
+          namespace: open-cluster-management

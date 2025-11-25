@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ./namespace.yaml       
+  - ./master-0-baremetal-host.yaml
+  - ./master-1-baremetal-host.yaml
+  - ./master-2-baremetal-host.yaml
+  - ./master-0-nmstate-config.yaml
+  - ./master-1-nmstate-config.yaml
+  - ./master-2-nmstate-config.yaml
+
+helmGlobals:
+  chartHome: ../../../../.helm-charts
+
+helmCharts:      
+  - name: bm-cluster-agent-install
+    releaseName: ocp3m0w-ic4s18
+    namespace: ocp3m0w-ic4s18
+    valuesInline:
+      clusterSet: default  
+      location: default
+      workerNumber: 0
+      imageSet: img4.19.22-multi-appsub
+      mastersSchedulable: true
+      sshKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDm9hb6iTZJypEmzg4IZ767ze60UGhBWnjPXhovWVB7uKputdLzZhmlo36ifkXr/DTk8NGm47r6kXmz9NAF0pDHa5jX6yJFnhS4z5NY/mzsUX41gwiqBKYHgdp/KE1ylE8mbNon5ZpaaGvb876myjjPjPwWsD8hvXZirA5Q8TfDb/Pvgy1dhVH/uN05Ip1vVsp+bFGMPUJVWVUy/Eby5xW6OJv+FBOQq4nu6tslDZlHYXX2TSGrlW4x0i/oQMpKu/Y8ygAdjWqmAy6UBcho1nNWy15cp0jI5Fhjze171vSWZLAqJY+eFcL2kt/09RnY+MXyY/tIf+qNMyBE2Qltigah
+      networking:
+        podCIDR: 10.128.0.0/14
+        serviceCIDR: 172.32.0.0/16
+        apiVIP: "192.168.125.5"
+        ingressVIP: "192.168.125.10"        
+
+  - name: cluster-registration
+    releaseName: ocp3m0w-ic4s18
+    namespace: ocp3m0w-ic4s18 

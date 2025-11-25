@@ -5,6 +5,6 @@ metadata:
   namespace: openshift-gitops
 data:
   hub: main
-  ocp3m0w-ic4s17: main
-  etl4: main
-  etl6: main
+  hub93: main  
+  ocp-edge1: main
+  ocp-edge1-cl3: main

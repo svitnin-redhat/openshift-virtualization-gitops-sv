@@ -20,24 +20,24 @@ applications:
 
 # Basic
 
-  # web-terminal-operator:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '5'
-  #   source:
-  #     path: components/web-terminal-operator 
+  web-terminal-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '5'
+    source:
+      path: components/web-terminal-operator 
 
 # Storage
 
 
 # Observability
 
-  # kube-ops-view:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '15'
-  #   destination:
-  #     namespace: kube-ops-view
-  #   source:
-  #     path: components/kube-ops-view       
+  kube-ops-view:
+    annotations:
+      argocd.argoproj.io/sync-wave: '15'
+    destination:
+      namespace: kube-ops-view
+    source:
+      path: components/kube-ops-view       
 
 # Networking
 
@@ -69,24 +69,24 @@ applications:
   #   source:
   #     path: components/external-dns-configuration      
 
-  # metallb-operator:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '5'
-  #   source:
-  #     path: components/metallb-operator
+  metallb-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '5'
+    source:
+      path: components/metallb-operator
 
-  # nmstate-operator:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '5'
-  #   source:
-  #     path: components/nmstate-operator 
+  nmstate-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '5'
+    source:
+      path: components/nmstate-operator 
 
-  # nmstate-instance:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '6'
-  #   destination:
-  #     namespace: openshift-nmstate
-  #   source:
-  #     path: components/nmstate-instance
+  nmstate-instance:
+    annotations:
+      argocd.argoproj.io/sync-wave: '6'
+    destination:
+      namespace: openshift-nmstate
+    source:
+      path: components/nmstate-instance
 
               
