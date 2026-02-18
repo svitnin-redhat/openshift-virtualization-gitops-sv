@@ -1,0 +1,25 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: master-2
+  namespace: ocp3m0w-ic4s18
+  labels:
+    infraenvs.agent-install.openshift.io: ocp3m0w-ic4s18
+spec:
+  config:
+    # Removed the 'networkConfig' wrapper
+    dns-resolver:
+      config:
+        server:
+          - 192.168.125.1
+    interfaces:
+      - name: eno1
+        type: ethernet
+        state: up
+        mac-address: "52:54:00:46:52:97"
+        ipv4:
+          enabled: true
+          dhcp: true
+  interfaces:
+    - name: eno1
+      macAddress: "52:54:00:46:52:97"

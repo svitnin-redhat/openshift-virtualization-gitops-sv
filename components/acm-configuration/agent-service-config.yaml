@@ -4,21 +4,21 @@ metadata:
  name: agent
 spec:
   databaseStorage:
-    storageClassName: hostpath-csi
+    storageClassName: ontap-nas
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
         storage: 10Gi
   filesystemStorage:
-    storageClassName: hostpath-csi
+    storageClassName: ontap-san
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
         storage: 50Gi
   imageStorage:
-    storageClassName: hostpath-csi
+    storageClassName: ontap-nas
     accessModes:
     - ReadWriteOnce
     resources:

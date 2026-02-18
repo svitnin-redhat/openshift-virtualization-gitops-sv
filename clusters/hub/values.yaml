@@ -6,8 +6,9 @@ applications:
 # Basics
 
   openshift-config:
+    enabled: false
     annotations:
-      argocd.argoproj.io/sync-wave: '16'
+      argocd.argoproj.io/sync-wave: '5'
     destination:
       namespace: openshift-config      
     source:
@@ -53,7 +54,7 @@ applications:
 
   acm-instance:
     annotations:
-      argocd.argoproj.io/sync-wave: '5'
+      argocd.argoproj.io/sync-wave: '15'
     source:
       path: components/acm-instance
 
@@ -64,11 +65,11 @@ applications:
     source:
       path: components/acm-configuration
 
-  # acm-observability:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '25'
-  #   source:
-  #     path: components/acm-observability
+  acm-observability:
+    annotations:
+      argocd.argoproj.io/sync-wave: '25'
+    source:
+      path: components/acm-observability
 
   gitops-boostrap-policy:
     annotations:
@@ -81,21 +82,21 @@ applications:
 
 # AAP          
 
-#   aap-operator:
-#     annotations:
-#       argocd.argoproj.io/compare-options: IgnoreExtraneous
-#       argocd.argoproj.io/sync-wave: '5'
-#     source:      
-#       path: components/aap-operator
+  aap-operator:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '5'
+    source:      
+      path: components/aap-operator
 
-#   aap-configuration:
-#     annotations:
-#       argocd.argoproj.io/compare-options: IgnoreExtraneous
-#       argocd.argoproj.io/sync-wave: '15'
-#     destination:
-#       namespace: aap
-#     source:
-#       path: components/aap-configuration
+  aap-configuration:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '15'
+    destination:
+      namespace: aap
+    source:
+      path: components/aap-configuration
 
 # MTV     
 
@@ -113,26 +114,42 @@ applications:
     source:
       path: components/mtv-configuration
 
-#   ova-server:
-#     annotations:
-#       argocd.argoproj.io/sync-wave: '25'
-#     source:
-#       path: clusters/hub/overlays/ova-server
+  ova-server:
+    annotations:
+      argocd.argoproj.io/sync-wave: '25'
+    source:
+      path: clusters/hub/overlays/ova-server
 
 # Managed Clusters
 
-  ocp-edge1:
-    annotations:
-      argocd.argoproj.io/sync-wave: '25'
-    destination:
-      namespace: ocp-edge1
-    source:
-      path: clusters/hub/overlays/cluster-ocp-edge1
-
-  # ocp-edge1-cl3:
+  # etl4:
   #   annotations:
-  #     argocd.argoproj.io/sync-wave: '25'
+  #     argocd.argoproj.io/sync-wave: '5'
   #   destination:
-  #     namespace: ocp-edge1-cl3
+  #     namespace: etl4
   #   source:
-  #     path: clusters/hub/overlays/cluster-ocp-edge1-cl3
+  #     path: clusters/hub/overlays/cluster-etl4
+
+  # etl6:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '5'
+  #   destination:
+  #     namespace: etl6
+  #   source:
+  #     path: clusters/hub/overlays/cluster-etl6
+
+  # spoke1:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '5'
+  #   destination:
+  #     namespace: spoke1
+  #   source:
+  #     path: clusters/hub/overlays/cluster-spoke1
+
+  ocp3m0w-ic4s18:
+    annotations:
+      argocd.argoproj.io/sync-wave: '5'
+    destination:
+      namespace: ocp3m0w-ic4s18
+    source:
+      path: clusters/hub/overlays/cluster-ocp3m0w-ic4s18

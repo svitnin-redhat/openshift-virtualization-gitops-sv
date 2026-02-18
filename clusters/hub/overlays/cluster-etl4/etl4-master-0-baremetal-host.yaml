@@ -1,0 +1,21 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    bmac.agent-install.openshift.io/hostname: etl4-master-0.etl4.ocp.rht-labs.com
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/cluster-reference: etl4/etl4
+    bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: "true"
+    inspect.metal3.io: disabled
+  labels:
+    infraenvs.agent-install.openshift.io: etl4
+    cluster-name: etl4
+  name: etl4-master-0
+spec:
+  automatedCleaningMode: disabled
+  bmc:
+    address: "redfish://192.168.123.1:8000/redfish/v1/Systems/c5efc509-3b7f-4253-bc5e-c32332332a89"
+    credentialsName: bmc-credentials
+    disableCertificateVerification: true
+  bootMACAddress: 52:54:00:d6:00:79
+  online: true
