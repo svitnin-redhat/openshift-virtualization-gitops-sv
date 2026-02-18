@@ -11,15 +11,15 @@ spec:
     dns-resolver:
       config:
         server:
-          - 192.168.125.1
+          - 192.168.126.1
     interfaces:
       - name: eno1
         type: ethernet
         state: up
-        mac-address: "52:54:00:7f:d9:7d"
+        mac-address: "52:54:00:28:ea:be"
         ipv4:
           enabled: true
           dhcp: true
   interfaces:
     - name: eno1
-      macAddress: "52:54:00:7f:d9:7d"
+      macAddress: "52:54:00:28:ea:be"

@@ -14,11 +14,11 @@ spec:
   automatedCleaningMode: metadata
   architecture: x86_64
   bmc:
-    address: redfish-virtualmedia+https://registry.ocp3m0w-ic4s18.qe.lab.redhat.com:8000/redfish/v1/Systems/85017b0c-c832-43eb-81a9-8973544a0c41
+    address: redfish-virtualmedia+https://registry.ocp3m0w-ic4s18.qe.lab.redhat.com:8000/redfish/v1/Systems/c586b1bf-3212-4c5d-b567-4579211b9d39
     disableCertificateVerification: True
     credentialsName: bmc-credentials
-  bootMACAddress: 52:54:00:46:52:97
+  bootMACAddress: 52:54:00:42:4c:2a
   rootDeviceHints:
     deviceName: /dev/sda
   online: true
-  bootMode: UEFI  
+  bootMode: UEFI
