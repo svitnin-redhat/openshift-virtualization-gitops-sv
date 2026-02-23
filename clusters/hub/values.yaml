@@ -62,11 +62,12 @@ applications:
     source:
       path: components/acm-configuration
 
-  acm-observability:
-    annotations:
-      argocd.argoproj.io/sync-wave: '25'
-    source:
-      path: components/acm-observability
+  # acm-observability:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '25'
+  #   source:
+  #     path: components/acm-observability
+  # NOTE: Disabled - requires MinIO CRD which is not installed
 
   gitops-boostrap-policy:
     annotations:
