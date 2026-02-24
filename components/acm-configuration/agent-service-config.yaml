@@ -16,11 +16,11 @@ spec:
     - ReadWriteOnce
     resources:
       requests:
-        storage: 50Gi
+        storage: 10Gi
   imageStorage:
     storageClassName: hostpath-csi
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
-        storage: 100Gi
+        storage: 10Gi
