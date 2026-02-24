@@ -30,8 +30,8 @@ helmCharts:
       networking:
         podCIDR: 10.128.0.0/14
         serviceCIDR: 172.32.0.0/16
-        apiVIP: "192.168.125.5"
-        ingressVIP: "192.168.125.10"        
+        apiVIP: "192.168.126.5"
+        ingressVIP: "192.168.126.10"        
 
   - name: cluster-registration
     releaseName: ocp3m0w-ic4s18
