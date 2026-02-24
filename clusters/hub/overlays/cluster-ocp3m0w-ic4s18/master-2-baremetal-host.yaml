@@ -3,6 +3,7 @@ kind: BareMetalHost
 metadata:
   annotations:
     baremetalhost.metal3.io/detached: "true"
+    inspect.metal3.io: disabled
     bmac.agent-install.openshift.io/hostname: master-2.ocp3m0w-ic4s18.qe.lab.redhat.com
     bmac.agent-install.openshift.io/role: master
     bmac.agent-install.openshift.io/cluster-reference: ocp3m0w-ic4s18/ocp3m0w-ic4s18
@@ -14,6 +15,7 @@ metadata:
 spec:
   automatedCleaningMode: metadata
   architecture: x86_64
+  externallyProvisioned: true
   bmc:
     address: redfish-virtualmedia+https://registry.ocp3m0w-ic4s18.qe.lab.redhat.com:8000/redfish/v1/Systems/c586b1bf-3212-4c5d-b567-4579211b9d39
     disableCertificateVerification: True
