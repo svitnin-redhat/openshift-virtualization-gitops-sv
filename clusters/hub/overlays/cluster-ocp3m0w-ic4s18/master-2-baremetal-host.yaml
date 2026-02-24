@@ -15,7 +15,6 @@ metadata:
 spec:
   automatedCleaningMode: metadata
   architecture: x86_64
-  externallyProvisioned: true
   bmc:
     address: redfish-virtualmedia+https://registry.ocp3m0w-ic4s18.qe.lab.redhat.com:8000/redfish/v1/Systems/c586b1bf-3212-4c5d-b567-4579211b9d39
     disableCertificateVerification: True
