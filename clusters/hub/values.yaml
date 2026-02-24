@@ -21,21 +21,21 @@ applications:
 
 # Networking
 
-  # metallb-configuration:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '6'
-  #   destination:
-  #     namespace: metallb-system
-  #   source:
-  #     path: clusters/hub/overlays/metallb-configuration
+  metallb-configuration:
+    annotations:
+      argocd.argoproj.io/sync-wave: '6'
+    destination:
+      namespace: metallb-system
+    source:
+      path: clusters/hub/overlays/metallb-configuration
 
-  # nmstate-configuration:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '6'
-  #   destination:
-  #     namespace: metallb-system
-  #   source:
-  #     path: clusters/hub/overlays/nmstate-configuration
+  nmstate-configuration:
+    annotations:
+      argocd.argoproj.io/sync-wave: '6'
+    destination:
+      namespace: metallb-system
+    source:
+      path: clusters/hub/overlays/nmstate-configuration  
 
 # Storage
 
@@ -80,12 +80,12 @@ applications:
 
 # AAP
 
-  aap-operator:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '5'
-    source:
-      path: components/aap-operator
+  # aap-operator:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '5'
+  #   source:      
+  #     path: components/aap-operator
 
   # aap-configuration:
   #   annotations:
@@ -98,19 +98,19 @@ applications:
 
 # MTV
 
-  mtv-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: '5'
-    source:
-      path: components/mtv-operator
+ # mtv-operator:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '5'
+  #   source:
+  #     path: components/mtv-operator
 
-  mtv-configuration:
-    annotations:
-      argocd.argoproj.io/sync-wave: '15'
-    destination:
-      namespace: openshift-mtv
-    source:
-      path: components/mtv-configuration
+  # mtv-configuration:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '15'
+  #   destination:
+  #     namespace: openshift-mtv
+  #   source:
+  #     path: components/mtv-configuration
 
   # ova-server:
   #   annotations:
