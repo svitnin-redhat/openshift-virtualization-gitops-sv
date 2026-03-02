@@ -21,7 +21,7 @@ default:
       targetRevision: HEAD
       extraSourceFields: |
         plugin:
-          name: setenv-cmp-plugin
+          name: setenv-cmp-plugin-v1.0
     syncOptions:
     - ApplyOutOfSyncOnly=true
     - PrunePropagationPolicy=foreground
