@@ -19,6 +19,9 @@ default:
     source:
       repoURL: ${INFRA_GITOPS_REPO}
       targetRevision: HEAD
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
     syncOptions:
     - ApplyOutOfSyncOnly=true
     - PrunePropagationPolicy=foreground
