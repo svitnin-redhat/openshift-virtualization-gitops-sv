@@ -27,5 +27,5 @@ spec:
     source: redhat-operators
     sourceNamespace: openshift-marketplace
   versions:
-    - metallb-operator.v4.20.0-202602091941
+    - metallb-operator.v4.19.0-202602091011
 
