@@ -1,0 +1,1 @@
+/ ocp3m0w-spoke1:/n annotations:/n argocd.argoproj.io/sync-wave: 25/n destination:/n namespace: ocp3m0w-spoke1/n source:/n path: clusters/hub/overlays/ocp3m0w-spoke1/n/

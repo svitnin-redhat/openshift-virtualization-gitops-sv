@@ -1,0 +1,108 @@
+<network ipv6='yes'>
+  <name>ocp3m0w-ic4s18</name>
+  <uuid></uuid>
+  <forward mode="nat">
+    <nat>
+      <port start="1024" end="65535"/>
+    </nat>
+  </forward>
+  <bridge name="ocp3m0w-ic4s18" stp="on" delay="0"/>
+  <domain name="ocp3m0w-ic4s18.qe.lab.redhat.com" localOnly="yes"/>
+  <dns enable="yes">
+    <forwarder domain="apps.ocp3m0w-ic4s18.qe.lab.redhat.com" addr="127.0.0.1"/>
+    <forwarder domain="api.ocp3m0w-ic4s18.qe.lab.redhat.com" addr="127.0.0.1"/>
+    <host ip="192.168.126.1">
+      <hostname>registry</hostname>
+      <hostname>hypervisor</hostname>
+    </host>
+    <host ip='fd2e:6f44:fddb::1'>
+      <hostname>registry</hostname>
+      <hostname>hypervisor</hostname>
+    </host>
+    <host ip="192.168.126.15">
+      <hostname>provisionhost-0-0</hostname>
+      <hostname>provisionhost-0-0.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::f">
+      <hostname>provisionhost-0-0</hostname>
+      <hostname>provisionhost-0-0.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="192.168.126.20">
+      <hostname>master-0</hostname>
+      <hostname>master-0.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::20">
+      <hostname>master-0</hostname>
+      <hostname>master-0.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="192.168.126.21">
+      <hostname>master-1</hostname>
+      <hostname>master-1.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::21">
+      <hostname>master-1</hostname>
+      <hostname>master-1.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="192.168.126.22">
+      <hostname>master-2</hostname>
+      <hostname>master-2.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::22">
+      <hostname>master-2</hostname>
+      <hostname>master-2.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="192.168.126.25">
+      <hostname>worker-0</hostname>
+      <hostname>worker-0.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::25">
+      <hostname>worker-0</hostname>
+      <hostname>worker-0.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="192.168.126.26">
+      <hostname>worker-1</hostname>
+      <hostname>worker-1.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::26">
+      <hostname>worker-1</hostname>
+      <hostname>worker-1.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="192.168.126.27">
+      <hostname>worker-2</hostname>
+      <hostname>worker-2.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+    <host ip="fd2e:6f44:fddb::27">
+      <hostname>worker-2</hostname>
+      <hostname>worker-2.ocp3m0w-ic4s18.qe.lab.redhat.com</hostname>
+    </host>
+  </dns>
+  <ip family="ipv4" address="192.168.126.1" prefix="24">
+    <dhcp>
+      <range start="192.168.126.50" end="192.168.126.150">
+        <lease expiry="60" unit="minutes"/>
+      </range>
+      <host mac="52:54:00:0d:60:b4" name="provisionhost-0-0" ip="192.168.126.15"/>
+      <host mac="52:54:00:28:ea:be" name="master-0" ip="192.168.126.20"/>
+      <host mac="52:54:00:02:e7:fd" name="master-1" ip="192.168.126.21"/>
+      <host mac="52:54:00:42:4c:2a" name="master-2" ip="192.168.126.22"/>
+      <host mac="52:54:00:46:1d:25" name="worker-0" ip="192.168.126.25"/>
+      <host mac="52:54:00:7e:8d:80" name="worker-1" ip="192.168.126.26"/>
+      <host mac="52:54:00:7e:03:d8" name="worker-2" ip="192.168.126.27"/>
+    </dhcp>
+  </ip>
+  <ip family='ipv6' address='fd2e:6f44:fddb::1' prefix='64'>
+    <dhcp>
+      <range start='fd2e:6f44:fddb::32' end='fd2e:6f44:fddb::96'>
+        <lease expiry='60' unit='minutes'/>
+      </range>
+      <host id='00:03:00:01:52:54:00:0d:60:b4' name='provisionhost-0-0' ip='fd2e:6f44:fddb::f'/>
+      <host id='00:03:00:01:52:54:00:28:ea:be' name='master-0' ip='fd2e:6f44:fddb::20'/>
+      <host id='00:03:00:01:52:54:00:02:e7:fd' name='master-1' ip='fd2e:6f44:fddb::21'/>
+      <host id='00:03:00:01:52:54:00:42:4c:2a' name='master-2' ip='fd2e:6f44:fddb::22'/>
+      <host id="00:03:00:01:52:54:00:46:1d:25" name="worker-0" ip='fd2e:6f44:fddb::25'/>
+      <host id="00:03:00:01:52:54:00:7e:8d:80" name="worker-1" ip='fd2e:6f44:fddb::26'/>
+      <host id="00:03:00:01:52:54:00:7e:03:d8" name="worker-2" ip='fd2e:6f44:fddb::27'/>
+
+    </dhcp>
+  </ip>
+</network>

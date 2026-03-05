@@ -1,0 +1,11 @@
+apiVersion: config.openshift.io/v1
+kind: ClusterVersion
+metadata:
+  name: version
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false,ServerSideApply=true  
+spec:
+  channel: stable-4.19
+  desiredUpdate:
+    version: 4.19.22
+    image: "quay.io/openshift-release-dev/ocp-release@sha256:e4377ba202c97eccba15c3a428cd4e532a02d5420d5b8918cdd3284404abb1ba"
